@@ -33,6 +33,10 @@
   	<pluginManagement>
   		<plugins>
   			<plugin>
+          		<artifactId>maven-install-plugin</artifactId>
+          		<version>2.5.2</version>
+        	</plugin>
+  			<plugin>
   				<groupId>dev.fuzzit.javafuzz</groupId>
           		<artifactId>javafuzz-maven-plugin</artifactId>
           		<version>1.23-SNAPSHOT</version>
