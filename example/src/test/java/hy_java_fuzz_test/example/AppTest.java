@@ -1,6 +1,6 @@
 package hy_java_fuzz_test.example;
 
-import dev.fuzzit.javafuzz.core.AbstractFuzzTarget;
+import com.gitlab.javafuzz.core.AbstractFuzzTarget;
 
 /**
  * Unit test for simple App.
