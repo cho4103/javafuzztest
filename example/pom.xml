@@ -18,20 +18,30 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.11</version>
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>dev.fuzzit.javafuzz</groupId>
+      <groupId>com.gitlab.javafuzz</groupId>
       <artifactId>core</artifactId>
-      <version>1.23-SNAPSHOT</version>
+      <version>1.24</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.yaml</groupId>
+      <artifactId>snakeyaml</artifactId>
+      <version>1.25</version>
+    </dependency>
+    <dependency>
+      <groupId>com.gitlab.javafuzz</groupId>
+      <artifactId>javafuzz-maven-plugin</artifactId>
+      <version>1.24</version>
+    </dependency>    
   </dependencies>
-  
+
   <build>
-  	<pluginManagement>
-  		<plugins>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
@@ -72,11 +82,40 @@
           <version>3.0.0</version>
         </plugin>
         <plugin>
-          <groupId>dev.fuzzit.javafuzz</groupId>
+          <groupId>com.gitlab.javafuzz</groupId>
           <artifactId>javafuzz-maven-plugin</artifactId>
-          <version>1.23-SNAPSHOT</version>
+          <version>1.24</version>
         </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+        </plugin>        
       </plugins>
-  	</pluginManagement>
+    </pluginManagement>
   </build>
+<repositories>
+  <repository>
+    <id>gitlab-maven</id>
+    <url>https://gitlab.com/api/v4/projects/19871573/packages/maven</url>
+  </repository>
+</repositories>
+
+<pluginRepositories>
+  <pluginRepository>
+    <id>gitlab-maven</id>
+    <url>https://gitlab.com/api/v4/projects/19871573/packages/maven</url>
+  </pluginRepository>
+</pluginRepositories>
+
+<distributionManagement>
+  <repository>
+    <id>gitlab-maven</id>
+    <url>https://gitlab.com/api/v4/projects/19871573/packages/maven</url>
+  </repository>
+
+  <snapshotRepository>
+    <id>gitlab-maven</id>
+    <url>https://gitlab.com/api/v4/projects/19871573/packages/maven</url>
+  </snapshotRepository>
+</distributionManagement>
 </project>
