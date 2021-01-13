@@ -7,14 +7,9 @@ import hy_java_fuzz_test.example3.App;
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-{
-	public class FuzzParseComplex extends AbstractFuzzTarget
-	{
-	    public void fuzz(byte[] data)
-	    {
+public class AppTest extends AbstractFuzzTarget {
+	public void fuzz(byte[] data) {
 	        App.parseComplex(data);
-	    }
 	}
 }
 
