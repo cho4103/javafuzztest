@@ -1,5 +1,7 @@
 package hy_java_fuzz_test.example5;
 
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
 /**
  * Hello world!
  *
@@ -7,8 +9,9 @@ package hy_java_fuzz_test.example5;
 public class App 
 {
 	public static String parseComplex (byte[] data) {
-        if (data.length < 3) {
-	         return "no";
+        if (data.length >= 3) {
+        	System.out.println(data[0]);
+        	return "no";
         }
         return  "ok";
     }
