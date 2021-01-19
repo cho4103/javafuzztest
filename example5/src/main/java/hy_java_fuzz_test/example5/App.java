@@ -7,7 +7,9 @@ package hy_java_fuzz_test.example5;
 public class App 
 {
 	public static String parseComplex (byte[] data) {
-
+        if (data.length < 3) {
+	         return "no";
+        }
         return  "ok";
     }
 
