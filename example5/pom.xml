@@ -37,9 +37,6 @@
           <groupId>com.gitlab.javafuzz</groupId>
           <artifactId>javafuzz-maven-plugin</artifactId>
           <version>1.24</version>
-           <configuration>
-            <testFailureIgnore>true</testFailureIgnore>
-        	</configuration>
         </plugin>
       </plugins>
     </pluginManagement>
