@@ -34,8 +34,9 @@ public class Fuzzer {
         MessageDigest md = MessageDigest.getInstance("SHA-256");
         md.update(buf);
         byte[] digest = md.digest();
-        String hex = String.format("%064x", new BigInteger(1, digest));
-        String filepath = "crash-" + hex;
+//      String hex = String.format("%064x", new BigInteger(1, digest));
+//      String filepath = "crash-" + hex;
+        String filepath = "crash";
         try (FileOutputStream fos = new FileOutputStream(filepath)) {
             fos.write(buf);
             System.out.printf("crash was written to %s\n", filepath);
