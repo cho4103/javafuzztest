@@ -3,6 +3,8 @@ package dev.fuzzit.javafuzz.core;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigInteger;
@@ -71,8 +73,10 @@ public class Fuzzer {
             try {
                 this.target.fuzz(buf);
             } catch (Exception e) {
-                e.printStackTrace();
-                this.writeCrash(e.getMessage().getBytes());
+                StringWriter errors = new StringWriter();
+                e.printStackTrace(new PrintWriter(errors));
+               
+                this.writeCrash(errors.toString().getBytes());
                 break;
             }
 
